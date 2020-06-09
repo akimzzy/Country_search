@@ -20,7 +20,7 @@ let historyArr = []
 
 // function to update history array
 const updateHistory = (country) => {
-    historyArr.unshift(country)
+    historyArr.unshift(country.toLowerCase())
     historyArr = [...new Set(historyArr)]    
     showHistory()
 }
@@ -30,21 +30,19 @@ const showHistory = () => {
     const element = document.querySelector(".details")
     element.innerHTML = ""
 
-    historyArr.forEach((cur) => {
+    historyArr.forEach(cur => {
         newEl = document.createElement("div")
         newEl.innerHTML = 
-        `${cur}   
-        <svg id=${cur} onclick=delHistory("${cur.split(" ").join("")}") class="del" xmlns="http://www.w3.org/2000/svg" width="14.451" height="14.451" viewBox="0 0 14.451 14.451"><g class="Group_11" data-name="Group 11" transform="translate(-816.774 -375.774)"><path id="Path_2" data-name="Path 2" d="M0,0,11.623,11.623" transform="translate(818.189 377.189)" fill="none" stroke="red" stroke-linecap="round" stroke-width="2"/><path id="Path_3" data-name="Path 3" d="M11.623,0,0,11.623" transform="translate(818.189 377.189)" fill="none" stroke="red" stroke-linecap="round" stroke-width="2"/></g></svg>
-        `
+        `${cur}<svg onclick=delHistory("${cur.split(" ").join("")}") class="del" xmlns="http://www.w3.org/2000/svg" width="14.451" height="14.451" viewBox="0 0 14.451 14.451"><g class="Group_11" data-name="Group 11" transform="translate(-816.774 -375.774)"><path id="Path_2" data-name="Path 2" d="M0,0,11.623,11.623" transform="translate(818.189 377.189)" fill="none" stroke="red" stroke-linecap="round" stroke-width="2"/><path id="Path_3" data-name="Path 3" d="M11.623,0,0,11.623" transform="translate(818.189 377.189)" fill="none" stroke="red" stroke-linecap="round" stroke-width="2"/></g></svg>`
         element.appendChild(newEl)
     })
-}
+} 
 
 // Render selected history when click
 const historyEl = document.querySelector(".details")
 historyEl.addEventListener("click", (e) => {
     if (e.target.localName === "div") {
-        const country = e.target.querySelector("svg").id
+        const country = e.target.textContent
         displayLoading()
         ultimateGetData(country)
     }
@@ -70,7 +68,7 @@ const render = () => {
     } else {
         alert("input country name")
     }
-    document.querySelector(".search").querySelector("input").value = ""
+    inputDOM.value = ""
 }
 
 

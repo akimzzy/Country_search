@@ -17,7 +17,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  background-color: #eee; }
+  background-color: black; }
 
 .heroBox {
   grid-row: 1 / -1;
@@ -200,25 +200,18 @@ span {
       border-radius: 0px; } }
   .picture .image {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 25rem);
+    grid-template-columns: repeat(auto-fit, 23rem);
     gap: 2rem;
     justify-content: center; }
-    @media only screen and (max-width: 500px) {
-      .picture .image {
-        grid-template-columns: repeat(auto-fit, 20rem); } }
   .picture figure {
-    background-color: #000;
     height: 25rem;
     overflow: hidden;
     border-radius: .5rem; }
-    @media only screen and (max-width: 500px) {
-      .picture figure {
-        height: 20rem; } }
     .picture figure img {
       height: 100%;
       object-fit: cover;
       transform: scale(1.35);
-      opacity: .7;
+      opacity: .6;
       transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045); }
       .picture figure img:hover {
         transform: scale(1);
