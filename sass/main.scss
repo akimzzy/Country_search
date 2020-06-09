@@ -1,0 +1,339 @@
+$prim: #FFAA00;
+$sec: #030000;
+
+$lmb: 3rem;
+$mmb: 2rem;
+
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;  
+
+    @media only screen and (max-width: 500px) {
+        font-size: 57%;
+    }
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    background-color: #eee;
+}
+
+.heroBox {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    justify-content: center;
+    height: 100vh; 
+    overflow: hidden;
+    position: relative;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+
+        @media only screen and (max-width: 500px) { 
+            min-height: 100%;
+        }
+    }
+     
+    &::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0, .5);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.content {
+    padding: 10rem;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @media only screen and (max-width: 900px) {
+        padding: 7rem 5rem;
+    }
+    @media only screen and (max-width: 500px) { 
+        padding: 7rem  0;
+        padding-bottom: 0;
+    }
+}
+
+.search {
+    background-color: #fff;
+    display: flex;
+    border-radius: 3rem;
+    overflow: hidden;
+    margin-bottom: $lmb;
+
+    input {
+        padding: 1rem;
+        width: 40rem;
+        border: none;
+
+        @media only screen and (max-width: 900px) {
+            width: 25rem;
+        }
+
+        @media only screen and (max-width: 500px) { 
+            width: 20rem;
+        }
+
+        &::placeholder {
+            text-align: center;
+        }
+
+        &:focus {
+         outline: none;
+        }
+    }
+    button {
+        height: 100%;   
+        background-color: $prim;
+        width: 4rem; 
+        border: none; 
+        cursor: pointer; 
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:focus {
+            outline: none;
+        }
+    }
+    img {
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+h2 {
+    font-size: 1.7rem; 
+    color: $prim; 
+    font-weight: 500;
+    margin-bottom: $mmb/2;
+}
+
+.history {
+    width: 100%;
+    margin-bottom: $lmb;
+    
+    h2 {cursor: pointer;}
+    h2:hover {color: white;}
+
+    .details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 10rem); 
+        gap: 1rem;
+        justify-content: center;
+
+        div {
+            padding: .3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5rem;
+            color: white;
+            background-image: linear-gradient(to bottom, $prim, $sec);
+            cursor: pointer;
+            font-size: 1.2rem;
+
+            svg {margin-left: 1rem;}
+
+            // @media only screen and (max-width: 500px) { 
+            //    display: none;
+            // }
+        }
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: $mmb;
+}
+
+.main {
+    min-width: 100%;
+    padding: 5rem; 
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(1,-0.54,.04,1.26);
+    
+    @media only screen and (max-width: 900px) {
+        padding: 2.5rem;
+    }
+
+    .bg {
+        padding: 5rem;
+        position: absolute; 
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 5rem;
+        border-top-right-radius: 5rem;
+        top: 0;
+        left: 0;
+        background-color: rgba($sec, .7);
+        filter: blur(8px);
+        z-index: -1;
+    }
+
+    .flag {
+        height: 10rem;
+        margin-bottom: $mmb;
+    }
+
+    .short__note {
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: $lmb;
+    }
+}
+
+h3 {
+    color: $prim;
+    margin-bottom: $mmb/3;
+    font-size: 1.5rem;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: $lmb;
+}
+
+svg {
+    z-index: 100;
+}
+
+span {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.anthem {
+    margin-bottom: $lmb;
+}
+
+.picture {
+    background-color: $sec;
+    width: 100%;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    padding: 5rem;
+    position: relative;
+    top: -2rem;
+    transition: all 1s cubic-bezier(1,-0.54,.04,1.26);
+
+    @media only screen and (max-width: 900px) {
+        padding: 4rem 2.5rem;
+    }
+
+    @media only screen and (max-width: 500px) { 
+        border-radius: 0px;
+    }
+
+    .image {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 25rem);
+        gap: 2rem;
+        justify-content: center;
+
+        @media only screen and (max-width: 500px) { 
+            grid-template-columns: repeat(auto-fit, 20rem);
+        }
+    }
+
+    figure {
+        background-color: #000;
+        height: 25rem;
+        overflow: hidden;
+        border-radius: .5rem;
+
+        @media only screen and (max-width: 500px) { 
+            height: 20rem;
+        }
+        img {
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.35);
+            opacity: .7;
+            transition: all .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+            &:hover {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.noDisplay {
+    transform: translateX(2rem);
+    opacity: 0;
+    pointer-events: none;
+    display: none !important;
+}
+.display {display: auto !important;}
+
+.loading {
+    height: 25em;
+    width: 25em;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10000;
+
+    &::before,
+    &::after {
+        content: "";
+        text-align: center;
+        position: absolute; 
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        background-color: rgba($prim, .5);
+    } 
+
+    &::before {animation: scale 1s ease .3s infinite;}
+    &::after {animation: scale  1s ease infinite;}
+}
+
+.error {
+    font-size: 3rem;
+    color: white;
+    margin-top: 5rem;
+    text-shadow: 0 .3rem .5rem rgba($sec, .8);
+}
+
+@keyframes scale {
+    0%{transform: scale(0);}
+    100%{transform: scale(13);}
+}
